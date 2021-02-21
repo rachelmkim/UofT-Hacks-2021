@@ -19,7 +19,7 @@ def line_dict() -> dict:
         if len(line) == 5:
             id_line[line[0]] = line[4]
     return id_line
- 
+
  
 def q_and_a() -> tuple:
     """
