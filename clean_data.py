@@ -19,26 +19,14 @@ def line_dict() -> dict:
         if len(line) == 5:
             id_line[line[0]] = line[4]
     return id_line
-    
-    
-def conversation_file(conv_id, id_line):
-    """ input: the output of the above functions
-    make conversation file
-    """
-    id = 0
-    for conversation in conv_id:
-        f = open(str(id) + '.txt', 'w')
-        for line_id in conversation:
-            f.write(id_line[line_id])
-            f.write('\n')
-        f.close()
-        id += 1
  
-
-def q_and_a(conv_id, id_line) -> tuple:
-    """ input: the output of the first two functions
-    return lists of q and as
+ 
+def q_and_a() -> tuple:
     """
+    return lists of q and a lines
+    """
+    conv_id = conversation_list()
+    id_line = line_dict()
     questions = []
     answers = []
     for conv in conv_id:
