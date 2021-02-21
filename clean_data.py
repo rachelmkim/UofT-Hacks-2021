@@ -43,3 +43,15 @@ def clean_text(text) -> str:
     text = regex.sub(r"[-()\"#/@;:<>{}`+=~|.!?,]", "", text)
     return text
 
+
+# clean the Qs and As
+questions = q_and_a()[0]
+answers = q_and_a()[1]
+
+clean_questions = []
+for question in questions:
+    clean_questions.append(clean_text(question))
+    
+clean_answers = []    
+for answer in answers:
+    clean_answers.append(clean_text(answer))
