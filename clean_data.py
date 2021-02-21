@@ -48,14 +48,8 @@ def clean_text(text) -> str:
 questions = q_and_a()[0]
 answers = q_and_a()[1]
 
-clean_questions = []
-for question in questions:
-    clean_questions.append(clean_text(question))
-    
-clean_answers = []    
-for answer in answers:
-    clean_answers.append(clean_text(answer))
-    
-    
-    
+answers = [clean_text(answer) for answer in answers]
+questions = [clean_text(question) for question in questions]
+
+ 
 # uses code from https://github.com/suriyadeepan/practical_seq2seq/blob/master/datasets/cornell_corpus/data.py
