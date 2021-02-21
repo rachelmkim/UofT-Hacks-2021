@@ -1,3 +1,5 @@
+import regex
+
 def conversation_list() -> list:
     """ read movie_conversations and make a list of ids of lines
     """
@@ -34,3 +36,10 @@ def q_and_a() -> tuple:
             questions.append(id_line[conv[i]])
             answers.append(id_line[conv[i + 1]])
     return questions, answers
+
+
+def clean_text(text) -> str:
+    text = text.lower()
+    text = regex.sub(r"[-()\"#/@;:<>{}`+=~|.!?,]", "", text)
+    return text
+
