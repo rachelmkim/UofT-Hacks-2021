@@ -55,3 +55,7 @@ for question in questions:
 clean_answers = []    
 for answer in answers:
     clean_answers.append(clean_text(answer))
+    
+    
+    
+# uses code from https://github.com/suriyadeepan/practical_seq2seq/blob/master/datasets/cornell_corpus/data.py
