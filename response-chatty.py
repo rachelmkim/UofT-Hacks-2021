@@ -11,6 +11,7 @@ from nltk.stem import WordNetLemmatizer
 
 from typing import List, Dict
 from clean_data import questions as questions
+from clean_data import answers as answers
 
 import pickle
 import random
@@ -77,18 +78,17 @@ def predict_category(sentence: str) -> List[Dict]:
 def respond(message: str) -> str:
     """Return Chatty's response to a given message"""
     question = predict_category(message)
-    response = generate_response(question, questions)
+    response = generate_response(question)
     return response
 
 
-def generate_response(ints, intents_json) -> str:
+def generate_response(question) -> str:
     """Generate a response"""
-    tag = ints[0]['intent']
-    list_of_intents = intents_json['intents']
     result = "Sorry, I didn't quite catch that"
 
-    for i in list_of_intents:
-        if i['tag'] == tag:
-            result = random.choice(i['responses'])
+    for i in range(len(questions)):
+        if questions[i] == question:
+            result = random.choice(answers[i])
             break
+
     return result
